@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uncorrupted.PageObjects.Main
 {
-    internal class Item
+    internal class Item : MainPage
     {
     }
 }

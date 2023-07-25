@@ -19,7 +19,6 @@ namespace Uncorrupted.Tests
             loginPage.password.SendKeys("13245768F");
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
-            driver.Quit();
         }
 
         [Test]
@@ -33,7 +32,6 @@ namespace Uncorrupted.Tests
             loginPage.password.SendKeys("secret_sauce");
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
-            driver.Quit();
         }
 
         [Test]
@@ -46,7 +44,6 @@ namespace Uncorrupted.Tests
             loginPage.password.SendKeys("secret_sauce");
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
-            driver.Quit();
         }
 
         [Test]
@@ -59,7 +56,6 @@ namespace Uncorrupted.Tests
             loginPage.userName.SendKeys("locked_out_user");
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
-            driver.Quit();
         }
 
         [Test]
@@ -74,7 +70,6 @@ namespace Uncorrupted.Tests
             MainPage mainPage = new MainPage();
 
             Assert.That(mainPage.cart.Displayed);
-            driver.Quit();
         }
     }
 }

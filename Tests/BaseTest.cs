@@ -13,10 +13,15 @@ namespace Uncorrupted.Tests
         public void Setup()
         {
             ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--headless");
+            //options.AddArgument("--headless");
             driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("https://www.saucedemo.com/");
             driver.Manage().Window.Maximize();
+        }
+
+        [TearDown] public void Teardown()
+        {
+            driver.Quit();
         }
     }
 }

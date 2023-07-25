@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 
 namespace Uncorrupted.PageObjects.Main
 {
-    public class AllItems
+    public class AllItems : MainPage
     {
         public SelectElement sorting;
         public ReadOnlyCollection<IWebElement> items;
+        public IWebElement buyBackPack;
+        public IWebElement buyBikeLight;
+        public IWebElement buyFleeceJacket;
         public AllItems() {
             sorting = new SelectElement(driver.FindElement(By.CssSelector("*[data-test=\"product_sort_container\"]")));
+            buyBackPack = driver.FindElement(By.Id("add-to-cart-sauce-labs-backpack"));
+            buyFleeceJacket = driver.FindElement(By.Id("add-to-cart-sauce-labs-bike-light"));
+            buyBikeLight = driver.FindElement(By.Id("add-to-cart-sauce-labs-fleece-jacket"));
         }
 
         public bool isSortedByAZ()
