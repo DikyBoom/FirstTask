@@ -27,6 +27,6 @@ jobs:
     - name: Install Chrome
       uses: logikal-io/install-chrome@v1.0.1
       with:
-       version: 115.0.5790.110-1
+       version: LATEST_RELEASE_114.0.5735
     - name: Test
       run: dotnet test --no-build --verbosity normal
