@@ -35,5 +35,10 @@ namespace Uncorrupted.PageObjects.Main
             checkout.Click();
             return new CheckoutCreds();
         }
+
+        public void removeBikeLightFromCart()
+        {
+            driver.FindElement(By.CssSelector("*[data-test=\"remove-sauce-labs-bike-light\"]")).Click();
+        }
     }
 }

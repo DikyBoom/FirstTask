@@ -49,5 +49,33 @@ namespace Uncorrupted.Tests
 
             AllItems allItems1 = checkoutFinish.clickBack();
         }
+
+        [Test]
+        public void removeItemFromCart()
+        {
+            LoginPage loginPage = new LoginPage();
+
+            loginPage.userName.SendKeys(goodUserName);
+            loginPage.password.SendKeys(password);
+            loginPage.loginButton.Click();
+
+            AllItems allItems = new AllItems();
+
+            allItems.buyFleeceJacket.Click();
+            allItems.buyBackPack.Click();
+            allItems.buyBikeLight.Click();
+
+            Cart cart = allItems.clickOnCart();
+
+            Assert.That(cart.checkBadgeNumber("3"));
+
+            Assert.That(cart.checkItemsInCart(new List<string> { "Sauce Labs Bike Light", "Sauce Labs Backpack", "Sauce Labs Fleece Jacket" }));
+
+            cart.removeBikeLightFromCart();
+
+            Assert.That(cart.checkBadgeNumber("2"));
+
+            Assert.That(cart.checkItemsInCart(new List<string> {"Sauce Labs Backpack", "Sauce Labs Fleece Jacket" }));
+        }
     }
 }
