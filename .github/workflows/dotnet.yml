@@ -24,8 +24,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v2.0.0
     - name: setup-chromedriver
       uses: nanasess/setup-chromedriver@v2.0.0
     - name: Test
