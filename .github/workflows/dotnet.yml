@@ -24,7 +24,9 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: setup-chromedriver
-      uses: nanasess/setup-chromedriver@v2.0.0
+    - name: Install Chrome
+      uses: logikal-io/install-chrome@v1.0.1
+      with:
+       version: 115.0.5790.110-1
     - name: Test
       run: dotnet test --no-build --verbosity normal
