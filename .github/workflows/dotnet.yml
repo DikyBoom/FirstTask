@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Chrome/Chromedriver Matcher Action
-      uses: jamesmortensen/chromedriver-matcher-action@v1.0.1
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -26,5 +24,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Chrome/Chromedriver Matcher Action
+      uses: jamesmortensen/chromedriver-matcher-action@v1.0.1
     - name: Test
       run: dotnet test --no-build --verbosity normal
