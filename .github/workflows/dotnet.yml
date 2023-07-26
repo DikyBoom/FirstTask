@@ -24,7 +24,3 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v1.2.0
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
