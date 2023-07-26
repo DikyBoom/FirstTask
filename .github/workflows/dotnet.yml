@@ -24,7 +24,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Chrome/Chromedriver Matcher Action
-      uses: jamesmortensen/chromedriver-matcher-action@v1.0.1
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1.2.0
     - name: Test
       run: dotnet test --no-build --verbosity normal
