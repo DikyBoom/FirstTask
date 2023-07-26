@@ -28,8 +28,8 @@ namespace Uncorrupted.Tests
 
             LoginPage loginPage = new LoginPage();
 
-            loginPage.userName.SendKeys("locked_out_user");
-            loginPage.password.SendKeys("secret_sauce");
+            loginPage.userName.SendKeys(lockedUserName);
+            loginPage.password.SendKeys(password);
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
         }
@@ -41,7 +41,7 @@ namespace Uncorrupted.Tests
 
             LoginPage loginPage = new LoginPage();
 
-            loginPage.password.SendKeys("secret_sauce");
+            loginPage.password.SendKeys(password);
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
         }
@@ -53,7 +53,7 @@ namespace Uncorrupted.Tests
 
             LoginPage loginPage = new LoginPage();
 
-            loginPage.userName.SendKeys("locked_out_user");
+            loginPage.userName.SendKeys(goodUserName);
             loginPage.loginButton.Click();
             Assert.That(loginPage.getErrorMessage() == errorMessage);
         }
@@ -63,8 +63,8 @@ namespace Uncorrupted.Tests
         {
             LoginPage loginPage = new LoginPage();
 
-            loginPage.userName.SendKeys("standard_user");
-            loginPage.password.SendKeys("secret_sauce");
+            loginPage.userName.SendKeys(goodUserName);
+            loginPage.password.SendKeys(password);
             loginPage.loginButton.Click();
 
             MainPage mainPage = new MainPage();

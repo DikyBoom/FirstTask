@@ -15,8 +15,8 @@ namespace Uncorrupted.Tests
         {
             LoginPage loginPage = new LoginPage();
 
-            loginPage.userName.SendKeys("standard_user");
-            loginPage.password.SendKeys("secret_sauce");
+            loginPage.userName.SendKeys(goodUserName);
+            loginPage.password.SendKeys(password);
             loginPage.loginButton.Click();
 
             AllItems allItems = new AllItems();
