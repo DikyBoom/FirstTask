@@ -16,11 +16,13 @@ namespace Uncorrupted.PageObjects.Main
         public IWebElement buyBackPack;
         public IWebElement buyBikeLight;
         public IWebElement buyFleeceJacket;
+        public IWebElement backPackItemLink;
         public AllItems() {
             sorting = new SelectElement(driver.FindElement(By.CssSelector("*[data-test=\"product_sort_container\"]")));
             buyBackPack = driver.FindElement(By.Id("add-to-cart-sauce-labs-backpack"));
             buyFleeceJacket = driver.FindElement(By.Id("add-to-cart-sauce-labs-bike-light"));
             buyBikeLight = driver.FindElement(By.Id("add-to-cart-sauce-labs-fleece-jacket"));
+            backPackItemLink = driver.FindElement(By.Id("item_4_title_link"));
         }
 
         public bool isSortedBy(string type)
@@ -59,6 +61,12 @@ namespace Uncorrupted.PageObjects.Main
                 checkList.Reverse();
             }
             return Enumerable.SequenceEqual(checkList, realList);
+        }
+
+        public Item clickOnBackPackLink()
+        {
+            backPackItemLink.Click();
+            return new Item();
         }
     }
 }

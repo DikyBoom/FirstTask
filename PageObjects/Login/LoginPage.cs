@@ -21,5 +21,11 @@ namespace Uncorrupted.PageObjects.Login
         }
 
         public string getErrorMessage() => driver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
+
+        public AllItems clickContinueWithCorrectData()
+        {
+            loginButton.Click();
+            return new AllItems();
+        }
     }
 }

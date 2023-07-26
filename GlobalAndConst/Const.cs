@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Uncorrupted.GlobalAndConst
 {
-    internal class Const
+    public class Const
     {
+        public static string goodUserName = "standard_user";
+        public static string lockedUserName = "locked_out_user";
+        public static string password = "secret_sauce";
     }
 }
