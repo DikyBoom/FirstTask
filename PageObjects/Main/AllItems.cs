@@ -23,7 +23,7 @@ namespace Uncorrupted.PageObjects.Main
             buyBikeLight = driver.FindElement(By.Id("add-to-cart-sauce-labs-fleece-jacket"));
         }
 
-        public bool isSortedByAZ()
+        public bool isSortedBy(string type)
         {
             List<String> checkList = new List<String>();
             List<String> realList= new List<String>();
@@ -35,52 +35,29 @@ namespace Uncorrupted.PageObjects.Main
                 realList.Add(itemName.Text);
             }
             checkList.Sort();
+            if (type == "ZA")
+            {
+                checkList.Reverse();
+            }
             return Enumerable.SequenceEqual(checkList, realList);
         }
 
-        public bool isSortedByZA()
-        {
-            List<String> checkList = new List<String>();
-            List<String> realList = new List<String>();
-            items = driver.FindElements(By.ClassName("inventory_item"));
-            for (int i = 0; i < items.Count; i++)
-            {
-                IWebElement itemName = items[i].FindElement(By.ClassName("inventory_item_name"));
-                checkList.Add(itemName.Text);
-                realList.Add(itemName.Text);
-            }
-            checkList.Sort();
-            checkList.Reverse();
-            return Enumerable.SequenceEqual(checkList, realList);
-        }
-        public bool isSortedByPriceHL()
+        public bool isSortedByPrice(string type)
         {
             List<Double> checkList = new List<Double>();
             List<Double> realList = new List<Double>();
             items = driver.FindElements(By.ClassName("inventory_item"));
             for (int i = 0; i < items.Count; i++)
             {
-                IWebElement itemName = items[i].FindElement(By.ClassName("inventory_item_price"));
-                checkList.Add(Convert.ToDouble(itemName.Text.Remove(0, 1)));
-                realList.Add(Convert.ToDouble(itemName.Text.Remove(0, 1)));
+                Double itemPrice = Convert.ToDouble(items[i].FindElement(By.ClassName("inventory_item_price")).Text.Remove(0, 1).Replace('.', ','));
+                checkList.Add(itemPrice);
+                realList.Add(itemPrice);
             }
             checkList.Sort();
-            return Enumerable.SequenceEqual(checkList, realList);
-        }
-
-        public bool isSortedByPriceLH()
-        {
-            List<Double> checkList = new List<Double>();
-            List<Double> realList = new List<Double>();
-            items = driver.FindElements(By.ClassName("inventory_item"));
-            for (int i = 0; i < items.Count; i++)
+            if (type == "LH")
             {
-                IWebElement itemName = items[i].FindElement(By.ClassName("inventory_item_price"));
-                checkList.Add(Convert.ToDouble(itemName.Text.Remove(0, 1)));
-                realList.Add(Convert.ToDouble(itemName.Text.Remove(0, 1)));
+                checkList.Reverse();
             }
-            checkList.Sort();
-            checkList.Reverse();
             return Enumerable.SequenceEqual(checkList, realList);
         }
     }

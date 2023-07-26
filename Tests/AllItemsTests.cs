@@ -21,7 +21,7 @@ namespace Uncorrupted.Tests
 
             AllItems allItems = new AllItems();
 
-            Assert.That(allItems.isSortedByAZ);
+            Assert.That(allItems.isSortedBy("AZ"));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Uncorrupted.Tests
 
             allItems.sorting.SelectByValue("za");
 
-            Assert.That(allItems.isSortedByZA);
+            Assert.That(allItems.isSortedBy("ZA"));
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace Uncorrupted.Tests
 
             allItems.sorting.SelectByValue("lohi");
 
-            Assert.That(allItems.isSortedByPriceHL);
+            Assert.That(allItems.isSortedByPrice("HL"));
         }
 
         [Test]
@@ -69,7 +69,7 @@ namespace Uncorrupted.Tests
 
             allItems.sorting.SelectByValue("hilo");
 
-            Assert.That(allItems.isSortedByPriceLH);
+            Assert.That(allItems.isSortedByPrice("LH"));
         }
     }
 }
