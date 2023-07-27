@@ -32,5 +32,4 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '**'
     publishLocation: 'pipeline'
