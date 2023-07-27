@@ -24,8 +24,13 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
 
-- task: PublishBuildArtifacts@1
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: 'FirstTask'
+#     ArtifactName: 'tests'
+#     publishLocation: 'Container'
+
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: 'FirstTask'
-    ArtifactName: 'tests'
-    publishLocation: 'Container'
+    targetPath: 'FirstTask'
+    publishLocation: 'pipeline'
