@@ -32,5 +32,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: 'FirstTask'
+    targetPath: '**'
     publishLocation: 'pipeline'
