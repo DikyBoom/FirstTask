@@ -27,5 +27,6 @@ namespace Uncorrupted.Tests
                 "melds uncompromising style with unequaled laptop and tablet protection.");
             Assert.That(backPackPage.itemImage.GetAttribute("alt") == "Sauce Labs Backpack");
         }
+
     }
 }
