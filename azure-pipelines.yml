@@ -25,13 +25,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@3
+steps:
+# ...
+# do this after other tasks such as building
+- task: DotNetCoreCLI@2
   inputs:
-    testSelector: 'testRun'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Agent.TempDirectory)\TestResults'
-    ArtifactName: 'results'
-    publishLocation: 'Container'
+    command: test
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
