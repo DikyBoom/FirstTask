@@ -27,8 +27,9 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
+    command: 'publish'
+    publishWebProjects: false
+    projects: '''**/*.csproj'''
 
 - task: PublishBuildArtifacts@1
   inputs:
