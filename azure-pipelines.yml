@@ -27,8 +27,7 @@ steps:
 
 - task: VSTest@3
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**/Tests/**'
+    testSelector: 'testRun'
     searchFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: PublishBuildArtifacts@1
