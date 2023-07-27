@@ -27,6 +27,6 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: test
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'byBuildNumber'
