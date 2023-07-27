@@ -30,3 +30,9 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: '**/Tests/**'
     searchFolder: '$(System.DefaultWorkingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Agent.TempDirectory)\TestResults'
+    ArtifactName: 'results'
+    publishLocation: 'Container'
